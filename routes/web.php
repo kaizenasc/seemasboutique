@@ -81,43 +81,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('coupons', AdminCouponController::class);
     });
 
-    // TEMPORARY - Remove after using once!
-Route::get('/create-admin-secret-xyz', function() {
-    try {
-        // Check if admin exists
-        $adminExists = \App\Models\Admin::where('email', 'admin@seemas.com')->exists();
-        
-        if ($adminExists) {
-            return response()->json([
-                'status' => 'info',
-                'message' => 'Admin already exists! You can login now.',
-                'email' => 'admin@seemas.com',
-                'password' => 'admin123'
-            ]);
-        }
-        
-        // Create admin
-        \App\Models\Admin::create([
-            'name' => 'Admin',
-            'email' => 'admin@seemas.com',
-            'password' => \Illuminate\Support\Facades\Hash::make('admin123'),
-        ]);
-        
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Admin created successfully!',
-            'email' => 'admin@seemas.com',
-            'password' => 'admin123',
-            'login_url' => url('/admin/login')
-        ]);
-        
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => $e->getMessage(),
-            'trace' => $e->getTraceAsString()
-        ]);
-    }
+    Route::get('/test-route-123', function() {
+    return 'Routes are working! Laravel is alive!';
 });
 
 });
