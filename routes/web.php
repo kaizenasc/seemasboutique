@@ -80,7 +80,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Coupons
         Route::resource('coupons', AdminCouponController::class);
     });
-// TEMPORARY - Remove after using once!
+
+    // TEMPORARY - Remove after using once!
 Route::get('/create-admin-secret-xyz', function() {
     try {
         // Check if admin exists
@@ -107,16 +108,16 @@ Route::get('/create-admin-secret-xyz', function() {
             'message' => 'Admin created successfully!',
             'email' => 'admin@seemas.com',
             'password' => 'admin123',
-            'login_url' => url('/admin/login'),
-            'warning' => '⚠️ IMPORTANT: Remove this route from routes/web.php immediately!'
+            'login_url' => url('/admin/login')
         ]);
         
     } catch (\Exception $e) {
         return response()->json([
             'status' => 'error',
-            'message' => $e->getMessage()
+            'message' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
         ]);
     }
 });
-        
+
 });
