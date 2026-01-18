@@ -80,4 +80,24 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Coupons
         Route::resource('coupons', AdminCouponController::class);
     });
+
+    // Temporary route - remove after first use
+Route::get('/setup-admin-now', function() {
+    try {
+        // Check if admin already exists
+        if (\App\Models\Admin::where('email', 'admin@seemas.com')->exists()) {
+            return 'Admin already exists!';
+        }
+        
+        \App\Models\Admin::create([
+            'name' => 'Admin',
+            'email' => 'admin@seemas.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('admin123'),
+        ]);
+        
+        return 'Admin created successfully! Email: admin@seemas.com | Password: admin123 | NOW DELETE THIS ROUTE!';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});     
 });
