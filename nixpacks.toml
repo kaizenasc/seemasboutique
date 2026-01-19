@@ -14,8 +14,7 @@ cmds = [
     'touch database/database.sqlite',
     'chmod -R 775 storage',
     'chmod -R 775 bootstrap/cache',
-    'php artisan migrate --force',
-    'php artisan db:seed --force'
+    'php artisan migrate --force'
 ]
 
 [start]
