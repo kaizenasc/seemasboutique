@@ -81,8 +81,29 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('coupons', AdminCouponController::class);
     });
 
-    Route::get('/test-route-123', function() {
-    return 'Routes are working! Laravel is alive!';
+   Route::get('/setup-admin-now-123', function() {
+    
+    try {
+        \DB::connection()->getPdo();
+        $dbStatus = 'Database connected';
+    } catch (\Exception $e) {
+        return 'Database Error: ' . $e->getMessage();
+    }
+    
+    try {
+        $admin = \App\Models\Admin::firstOrCreate(
+            ['email' => 'admin@seemas.com'],
+            [
+                'name' => 'Admin',
+                'password' => \Illuminate\Support\Facades\Hash::make('admin123')
+            ]
+        );
+        
+        return "SUCCESS! Admin created!<br><br>Email: admin@seemas.com<br>Password: admin123<br><br><a href='/admin/login'>Go to Admin Login</a>";
+                
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
 });
 
 });
