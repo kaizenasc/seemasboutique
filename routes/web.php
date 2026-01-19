@@ -81,6 +81,37 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('coupons', AdminCouponController::class);
     });
 
-   
+   Route::get('/force-create-admin-final', function() {
+    try {
+        // Delete any existing admin first
+        \App\Models\Admin::where('email', 'admin@seemas.com')->delete();
+        
+        // Create fresh admin
+        $admin = \App\Models\Admin::create([
+            'name' => 'Admin',
+            'email' => 'admin@seemas.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('admin123'),
+        ]);
+        
+        // Verify it was created
+        $check = \App\Models\Admin::find($admin->id);
+        
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Admin created successfully!',
+            'admin_id' => $admin->id,
+            'email' => $admin->email,
+            'password_set' => !empty($check->password),
+            'can_login' => \Illuminate\Support\Facades\Hash::check('admin123', $check->password) ? 'YES' : 'NO'
+        ]);
+        
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
+        ]);
+    }
+});
 
 });
