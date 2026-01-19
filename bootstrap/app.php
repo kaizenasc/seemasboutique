@@ -14,12 +14,17 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'auth.admin' => \App\Http\Middleware\AdminMiddleware::class,
         ]);
-        
-        // Force HTTPS in production
-        if (app()->environment('production')) {
-            $middleware->append(\App\Http\Middleware\ForceHttps::class);
-        }
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
+// ```
+// 
+// ---
+// 
+// ### **Step 4: Make sure Railway environment variables are set:**
+// 
+// Go to Railway → Variables → Make sure these exist:
+// ```
+// APP_URL=https://www.seemasboutique.in
+// SESSION_SECURE_COOKIE=false
