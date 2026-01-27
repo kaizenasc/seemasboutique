@@ -230,11 +230,11 @@
 
 <div class="product-detail-container">
     <div class="product-images">
-        <img src="{{ asset('storage/' . $product->primary_image) }}" alt="{{ $product->name }}" class="main-image" id="mainImage">
+        <img src="{{ productImage($product->primary_image) }}" alt="{{ $product->name }}" class="main-image" id="mainImage">
         
         @if($product->images->count() > 0)
         <div class="thumbnail-images">
-            <img src="{{ asset('storage/' . $product->primary_image) }}" class="thumbnail active" onclick="changeImage(this)">
+            <img src="{{ productImage($image->image_path) }}" class="thumbnail active" onclick="changeImage(this)">
             @foreach($product->images as $image)
                 <img src="{{ asset('storage/' . $image->image_path) }}" class="thumbnail" onclick="changeImage(this)">
             @endforeach

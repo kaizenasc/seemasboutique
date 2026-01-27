@@ -63,7 +63,7 @@
         <div class="form-group">
             <label>Current Primary Image</label>
             <div style="margin-bottom: 15px;">
-                <img src="{{ asset('storage/' . $product->primary_image) }}" alt="{{ $product->name }}" style="width: 150px; height: 200px; object-fit: cover; border-radius: 8px;">
+                <img src="{{ productImage($product->primary_image) }}" alt="{{ $product->name }}" style="width: 150px; height: 200px; object-fit: cover; border-radius: 8px;">
             </div>
             <label>Change Primary Image</label>
             <input type="file" name="primary_image" class="form-control" accept="image/*">
@@ -75,7 +75,7 @@
             <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;">
                 @foreach($product->images as $image)
                     <div style="position: relative;">
-                        <img src="{{ asset('storage/' . $image->image_path) }}" style="width: 100px; height: 133px; object-fit: cover; border-radius: 8px;">
+                        <img src="{{ productImage($image->image_path) }}" style="width: 100px; height: 133px; object-fit: cover; border-radius: 8px;">
                         <form action="{{ route('admin.products.deleteImage', $image) }}" method="POST" style="position: absolute; top: 5px; right: 5px;" onsubmit="return confirm('Delete this image?')">
                             @csrf
                             @method('DELETE')

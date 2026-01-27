@@ -28,7 +28,7 @@
                 @forelse($products as $product)
                 <tr>
                     <td>
-                        <img src="{{ asset('storage/' . $product->primary_image) }}" alt="{{ $product->name }}">
+                        <img src="{{ productImage($product->primary_image) }}" alt="{{ $product->name }}">
                     </td>
                     <td>
                         <strong>{{ $product->name }}</strong><br>

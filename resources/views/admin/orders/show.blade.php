@@ -38,7 +38,7 @@
                             <td>
                                 <div style="display: flex; align-items: center; gap: 10px;">
                                     @if($item->product)
-                                        <img src="{{ asset('storage/' . $item->product->primary_image) }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                                        <img src="{{ productImage($item->product->primary_image) }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
                                     @endif
                                     <span>{{ $item->product_name }}</span>
                                 </div>

@@ -413,7 +413,7 @@
                 $subtotal += $item['price'] * $item['quantity'];
             @endphp
             <div class="order-item">
-                <img src="{{ asset('storage/' . $item['image']) }}" alt="{{ $item['name'] }}" class="order-item-image">
+                <img src="{{ productImage($item['image']) }}" alt="{{ $item['name'] }}" class="order-item-image">
                 <div class="order-item-details">
                     <div class="order-item-name">{{ $item['name'] }}</div>
                     <div class="order-item-meta">Size: {{ $item['size'] }} | Qty: {{ $item['quantity'] }}</div>

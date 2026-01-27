@@ -285,7 +285,7 @@
             @endphp
 
             <div class="cart-item">
-                <img src="{{ asset('storage/' . $item['image']) }}" alt="{{ $item['name'] }}" class="cart-item-image">
+                <img src="{{ productImage($item['image']) }}" alt="{{ $item['name'] }}" class="cart-item-image">
                 
                 <div class="cart-item-details">
                     <h3>{{ $item['name'] }}</h3>
