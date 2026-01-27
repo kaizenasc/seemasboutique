@@ -233,13 +233,13 @@
         <img src="{{ productImage($product->primary_image) }}" alt="{{ $product->name }}" class="main-image" id="mainImage">
         
         @if($product->images->count() > 0)
-        <div class="thumbnail-images">
-            <img src="{{ productImage($product->primary_image) }}" class="thumbnail active" onclick="changeImage(this)"> class="thumbnail active" onclick="changeImage(this)">
-            @foreach($product->images as $image)
-                <img src="{{ asset('storage/' . $image->image_path) }}" class="thumbnail" onclick="changeImage(this)">
-            @endforeach
-        </div>
-        @endif
+<div class="thumbnail-images">
+    <img src="{{ productImage($product->primary_image) }}" class="thumbnail active" onclick="changeImage(this)">
+    @foreach($product->images as $image)
+        <img src="{{ productImage($image->image_path) }}" class="thumbnail" onclick="changeImage(this)">
+    @endforeach
+</div>
+@endif
     </div>
 
     <div class="product-details">
