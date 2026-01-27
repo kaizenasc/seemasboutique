@@ -166,7 +166,7 @@
                 @endif
                 
                 <div class="product-image-wrapper">
-                    <img src="{{ asset('uploads/' . $product->primary_image) }}" alt="{{ $product->name }}" class="product-image">
+                    <img src="{{ asset('storage/' . $product->primary_image) }}" alt="{{ $product->name }}" class="product-image">
                 </div>
                 
                 <div class="product-info">
