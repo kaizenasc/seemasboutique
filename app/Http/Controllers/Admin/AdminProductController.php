@@ -38,7 +38,15 @@ class AdminProductController extends Controller
         ]);
 
         // Upload primary image
-        $primaryImagePath = $request->file('primary_image')->store('products', 'public');
+        // Create uploads/products directory if doesn't exist
+        if (!file_exists(public_path('uploads/products'))) {
+            mkdir(public_path('uploads/products'), 0755, true);
+        }
+
+        // Save with unique name
+        $primaryImageName = time() . '_' . uniqid() . '.' . $request->file('primary_image')->extension();
+        $request->file('primary_image')->move(public_path('uploads/products'), $primaryImageName);
+        $primaryImagePath = 'products/' . $primaryImageName;        
 
         // Calculate discount
         $discount = null;
@@ -66,7 +74,9 @@ class AdminProductController extends Controller
         if ($request->hasFile('additional_images')) {
             $order = 1;
             foreach ($request->file('additional_images') as $image) {
-                $imagePath = $image->store('products', 'public');
+                $imageName = time() . '_' . uniqid() . '.' . $image->extension();
+                $image->move(public_path('uploads/products'), $imageName);
+                $imagePath = 'products/' . $imageName;
                 ProductImage::create([
                     'product_id' => $product->id,
                     'image_path' => $imagePath,
@@ -124,8 +134,15 @@ class AdminProductController extends Controller
 
         // Upload new primary image
         if ($request->hasFile('primary_image')) {
-            Storage::disk('public')->delete($product->primary_image);
-            $data['primary_image'] = $request->file('primary_image')->store('products', 'public');
+            // Delete old image
+if (file_exists(public_path('uploads/' . $product->primary_image))) {
+    unlink(public_path('uploads/' . $product->primary_image));
+}
+
+// Upload new image
+$primaryImageName = time() . '_' . uniqid() . '.' . $request->file('primary_image')->extension();
+$request->file('primary_image')->move(public_path('uploads/products'), $primaryImageName);
+$data['primary_image'] = 'products/' . $primaryImageName;
         }
 
         $product->update($data);
@@ -134,7 +151,9 @@ class AdminProductController extends Controller
         if ($request->hasFile('additional_images')) {
             $order = $product->images()->max('order') + 1;
             foreach ($request->file('additional_images') as $image) {
-                $imagePath = $image->store('products', 'public');
+                $imageName = time() . '_' . uniqid() . '.' . $image->extension();
+$image->move(public_path('uploads/products'), $imageName);
+$imagePath = 'products/' . $imageName;
                 ProductImage::create([
                     'product_id' => $product->id,
                     'image_path' => $imagePath,
@@ -149,10 +168,17 @@ class AdminProductController extends Controller
     public function destroy(Product $product)
     {
         // Delete images
-        Storage::disk('public')->delete($product->primary_image);
-        foreach ($product->images as $image) {
-            Storage::disk('public')->delete($image->image_path);
-        }
+        // Delete primary image
+if (file_exists(public_path('uploads/' . $product->primary_image))) {
+    unlink(public_path('uploads/' . $product->primary_image));
+}
+
+// Delete additional images
+foreach ($product->images as $image) {
+    if (file_exists(public_path('uploads/' . $image->image_path))) {
+        unlink(public_path('uploads/' . $image->image_path));
+    }
+}
 
         // Update category product count
         $product->category->decrement('product_count');
@@ -164,7 +190,9 @@ class AdminProductController extends Controller
 
     public function deleteImage(ProductImage $image)
     {
-        Storage::disk('public')->delete($image->image_path);
+        if (file_exists(public_path('uploads/' . $image->image_path))) {
+    unlink(public_path('uploads/' . $image->image_path));
+}
         $image->delete();
 
         return back()->with('success', 'Image deleted successfully!');

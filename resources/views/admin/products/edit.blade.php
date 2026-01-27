@@ -63,7 +63,7 @@
         <div class="form-group">
             <label>Current Primary Image</label>
             <div style="margin-bottom: 15px;">
-                <img src="{{ asset('storage/' . $product->primary_image) }}" alt="{{ $product->name }}" style="width: 150px; height: 200px; object-fit: cover; border-radius: 8px;">
+                <img src="{{ asset('uploads/' . $product->primary_image) }}" alt="{{ $product->name }}" style="width: 150px; height: 200px; object-fit: cover; border-radius: 8px;">
             </div>
             <label>Change Primary Image</label>
             <input type="file" name="primary_image" class="form-control" accept="image/*">

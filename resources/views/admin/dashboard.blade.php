@@ -131,7 +131,7 @@
                 <tr>
                     <td>
                         <div style="display: flex; align-items: center; gap: 10px;">
-                            <img src="{{ asset('storage/' . $product->primary_image) }}" alt="{{ $product->name }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                            <img src="{{ asset('uploads/' . $product->primary_image) }}" alt="{{ $product->name }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
                             <span>{{ $product->name }}</span>
                         </div>
                     </td>

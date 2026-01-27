@@ -230,7 +230,7 @@
 
 <div class="product-detail-container">
     <div class="product-images">
-        <img src="{{ asset('storage/' . $product->primary_image) }}" alt="{{ $product->name }}" class="main-image" id="mainImage">
+        <img src="{{ asset('uploads/' . $product->primary_image) }}" alt="{{ $product->name }}" class="main-image" id="mainImage">
         
         @if($product->images->count() > 0)
         <div class="thumbnail-images">

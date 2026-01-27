@@ -11,13 +11,12 @@ cmds = [
     'mkdir -p storage/framework/cache',
     'mkdir -p storage/logs',
     'mkdir -p database',
-    'mkdir -p public/storage',
+    'mkdir -p public/uploads/products',
     'touch database/database.sqlite',
     'chmod -R 775 storage',
     'chmod -R 775 bootstrap/cache',
-    'chmod -R 775 public/storage',
-    'php artisan migrate --force'
+    'chmod -R 775 public/uploads'
 ]
 
 [start]
-cmd = 'php artisan storage:link && php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan serve --host=0.0.0.0 --port=$PORT'
+cmd = 'php artisan serve --host=0.0.0.0 --port=$PORT'
