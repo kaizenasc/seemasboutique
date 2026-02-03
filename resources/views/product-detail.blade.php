@@ -301,7 +301,8 @@
         @foreach($relatedProducts as $related)
             <div class="product-card" style="background: white; border: 1px solid #eee; overflow: hidden;">
                 <div style="position: relative; width: 100%; padding-bottom: 133%; overflow: hidden; background: #f5f5f5;">
-                    <img src="{{ asset('storage/' . $related->primary_image) }}" 
+                    <img src="{{ productImage($related->primary_image) }}" 
+                         alt="{{ $related->name }}"
                          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 15px;">

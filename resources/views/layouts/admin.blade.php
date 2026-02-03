@@ -405,10 +405,109 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Mobile Responsive Fixes */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .admin-user {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .table {
+        font-size: 12px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px 5px;
+    }
+
+    /* Make tables scrollable */
+    .card > div {
+        overflow-x: auto;
+    }
+
+    /* Responsive buttons */
+    .btn {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+
+    .btn-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    /* Stack form rows on mobile */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Mobile menu toggle */
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        position: fixed;
+        z-index: 9999;
+        height: 100vh;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 10000;
+        background: #c2185b;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+}
     </style>
     @stack('styles')
 </head>
 <body>
+     <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
+    
+    <div class="admin-wrapper"></div>
     <div class="admin-wrapper">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -496,5 +595,10 @@
     </div>
 
     @stack('scripts')
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
