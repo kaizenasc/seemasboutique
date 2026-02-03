@@ -496,18 +496,130 @@
     }
 }
 
-@media (min-width: 769px) {
+/* Mobile Responsive Fixes */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .top-bar {
+        padding: 15px 20px;
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        transition: left 0.3s;
+        z-index: 9999;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    }
+
+    .sidebar.mobile-active {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .admin-user {
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .table {
+        font-size: 11px;
+    }
+
+    .table th,
+    .table td {
+        padding: 6px 4px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .btn-sm {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    /* Scrollable tables */
+    .card > div[style*="overflow"] {
+        overflow-x: auto;
+    }
+}
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
     .mobile-menu-toggle {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 10000;
+        background: #c2185b;
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .mobile-menu-overlay {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 9998;
+    }
+
+    .mobile-menu-overlay.active {
+        display: block;
     }
 }
     </style>
     @stack('styles')
 </head>
 <body>
-     <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="mobile-menu-overlay" onclick="toggleSidebar()"></div>
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰</button>
     
-    <div class="admin-wrapper"></div>
     <div class="admin-wrapper">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -596,9 +708,13 @@
 
     @stack('scripts')
     <script>
-        function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('active');
-        }
-    </script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.mobile-menu-overlay');
+        
+        sidebar.classList.toggle('mobile-active');
+        overlay.classList.toggle('active');
+    }
+</script>
 </body>
 </html>
