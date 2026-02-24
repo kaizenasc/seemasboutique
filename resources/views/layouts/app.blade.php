@@ -22,8 +22,8 @@
 
         /* Top Banner */
         .top-banner {
-            background: #f39c12;
-            color: #000;
+            background: #c2185b;
+            color: #fff;
             padding: 12px 20px;
             font-size: 13px;
             text-align: center;
