@@ -13,15 +13,14 @@
     }
 
     .hero-slide {
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #880e4f, #c2185b);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-    }
-
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/images/webseema.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
     .hero-content {
         text-align: center;
         max-width: 800px;
