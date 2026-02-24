@@ -617,7 +617,7 @@
     @stack('styles')
 </head>
 <body>
-    <div class="mobile-menu-overlay" onclick="toggleSidebar()"></div>
+    <div class="sidebar" onclick="toggleSidebar()"></div>
     <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰</button>
     
     <div class="admin-wrapper">
