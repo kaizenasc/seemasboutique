@@ -30,6 +30,7 @@
             position: fixed;
             height: 100vh;
             overflow-y: auto;
+            z-index: 9999;
         }
 
         .sidebar-header {
@@ -205,68 +206,21 @@
             transition: all 0.3s;
         }
 
-        .btn-primary {
-            background: #c2185b;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #880e4f;
-        }
-
-        .btn-success {
-            background: #28a745;
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #218838;
-        }
-
-        .btn-danger {
-            background: #dc3545;
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background: #c82333;
-        }
-
-        .btn-warning {
-            background: #ffc107;
-            color: #333;
-        }
-
-        .btn-warning:hover {
-            background: #e0a800;
-        }
-
-        .btn-info {
-            background: #17a2b8;
-            color: white;
-        }
-
-        .btn-info:hover {
-            background: #138496;
-        }
-
-        .btn-sm {
-            padding: 6px 12px;
-            font-size: 13px;
-        }
+        .btn-primary { background: #c2185b; color: white; }
+        .btn-primary:hover { background: #880e4f; }
+        .btn-success { background: #28a745; color: white; }
+        .btn-success:hover { background: #218838; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-danger:hover { background: #c82333; }
+        .btn-warning { background: #ffc107; color: #333; }
+        .btn-warning:hover { background: #e0a800; }
+        .btn-info { background: #17a2b8; color: white; }
+        .btn-info:hover { background: #138496; }
+        .btn-sm { padding: 6px 12px; font-size: 13px; }
 
         /* Forms */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #333;
-        }
-
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #333; }
         .form-control {
             width: 100%;
             padding: 10px 15px;
@@ -275,127 +229,86 @@
             font-size: 14px;
             transition: border 0.3s;
         }
-
-        .form-control:focus {
-            outline: none;
-            border-color: #c2185b;
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        select.form-control {
-            cursor: pointer;
-        }
+        .form-control:focus { outline: none; border-color: #c2185b; }
+        textarea.form-control { resize: vertical; min-height: 100px; }
+        select.form-control { cursor: pointer; }
 
         /* Tables */
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .table th,
-        .table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        .table th {
-            background: #f8f9fa;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .table tr:hover {
-            background: #f8f9fa;
-        }
-
-        .table img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
+        .table { width: 100%; border-collapse: collapse; }
+        .table th, .table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
+        .table th { background: #f8f9fa; font-weight: 600; color: #333; }
+        .table tr:hover { background: #f8f9fa; }
+        .table img { width: 50px; height: 50px; object-fit: cover; border-radius: 5px; }
 
         /* Badges */
-        .badge {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
+        .badge { display: inline-block; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge-success { background: #d4edda; color: #155724; }
+        .badge-warning { background: #fff3cd; color: #856404; }
+        .badge-danger { background: #f8d7da; color: #721c24; }
+        .badge-info { background: #d1ecf1; color: #0c5460; }
+        .badge-primary { background: #f8bbd0; color: #880e4f; }
 
-        .badge-success {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .badge-warning {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .badge-danger {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
-        .badge-info {
-            background: #d1ecf1;
-            color: #0c5460;
-        }
-
-        .badge-primary {
-            background: #f8bbd0;
-            color: #880e4f;
-        }
-
-        /* Alert Messages */
-        .alert {
-            padding: 15px 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .alert-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+        /* Alerts */
+        .alert { padding: 15px 20px; margin-bottom: 20px; border-radius: 5px; font-size: 14px; }
+        .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alert-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
 
         /* Checkbox */
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 15px;
+        .checkbox-group { display: flex; align-items: center; gap: 8px; margin-bottom: 15px; }
+        .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+
+        /* ===================== */
+        /* MOBILE TOGGLE BUTTON  */
+        /* ===================== */
+        .mobile-menu-toggle {
+            display: none;
         }
 
-        .checkbox-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
+        /* ===================== */
+        /* MOBILE OVERLAY        */
+        /* ===================== */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 9998;
+        }
+        .mobile-menu-overlay.active {
+            display: block;
         }
 
-        /* Responsive */
+        /* ===================== */
+        /* RESPONSIVE BREAKPOINTS */
+        /* ===================== */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .top-bar {
+                padding: 15px 20px;
+            }
+            .page-title {
+                font-size: 20px;
+            }
+        }
+
         @media (max-width: 768px) {
+            /* Sidebar slides in from left */
             .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
+                position: fixed;
+                left: -260px;
+                width: 260px;
+                height: 100vh;
+                transition: left 0.3s ease;
+                z-index: 9999;
             }
 
+            .sidebar.mobile-active {
+                left: 0;
+            }
+
+            /* Main content takes full width */
             .main-content {
                 margin-left: 0;
                 width: 100%;
@@ -404,225 +317,80 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding-left: 70px; /* space for toggle button */
+            }
+
+            .admin-user {
+                width: 100%;
+                justify-content: space-between;
+                flex-direction: row;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            /* Scrollable tables */
+            .card {
+                overflow-x: auto;
+            }
+
+            .table {
+                font-size: 11px;
+                min-width: 500px;
+            }
+
+            .table th, .table td {
+                padding: 6px 4px;
+            }
+
+            .btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .btn-sm {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+
+            /* Show hamburger button */
+            .mobile-menu-toggle {
+                display: block;
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                z-index: 10000;
+                background: #c2185b;
+                color: white;
+                border: none;
+                width: 44px;
+                height: 44px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 20px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                line-height: 1;
+            }
         }
-
-        /* Mobile Responsive Fixes */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .main-content {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .admin-user {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .card {
-        padding: 15px;
-    }
-
-    .table {
-        font-size: 12px;
-    }
-
-    .table th,
-    .table td {
-        padding: 8px 5px;
-    }
-
-    /* Make tables scrollable */
-    .card > div {
-        overflow-x: auto;
-    }
-
-    /* Responsive buttons */
-    .btn {
-        padding: 8px 15px;
-        font-size: 13px;
-    }
-
-    .btn-sm {
-        padding: 5px 10px;
-        font-size: 12px;
-    }
-
-    /* Stack form rows on mobile */
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    /* Mobile menu toggle */
-    .sidebar {
-        transform: translateX(-100%);
-        transition: transform 0.3s;
-        position: fixed;
-        z-index: 9999;
-        height: 100vh;
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    .mobile-menu-toggle {
-        display: block;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 10000;
-        background: #c2185b;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-}
-
-/* Mobile Responsive Fixes */
-@media (max-width: 1024px) {
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .top-bar {
-        padding: 15px 20px;
-    }
-
-    .page-title {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        position: fixed;
-        left: -260px;
-        transition: left 0.3s;
-        z-index: 9999;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-    }
-
-    .sidebar.mobile-active {
-        left: 0;
-    }
-
-    .main-content {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .admin-user {
-        width: 100%;
-        justify-content: space-between;
-        flex-direction: row;
-    }
-
-    .card {
-        padding: 15px;
-    }
-
-    .table {
-        font-size: 11px;
-    }
-
-    .table th,
-    .table td {
-        padding: 6px 4px;
-    }
-
-    .btn {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-
-    .btn-sm {
-        padding: 4px 8px;
-        font-size: 11px;
-    }
-
-    /* Scrollable tables */
-    .card > div[style*="overflow"] {
-        overflow-x: auto;
-    }
-}
-
-.mobile-menu-toggle {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 10000;
-        background: #c2185b;
-        color: white;
-        border: none;
-        padding: 15px;
-        border-radius: 50%;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-        line-height: 1;
-    }
-
-    .mobile-menu-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.5);
-        z-index: 9998;
-    }
-
-    .mobile-menu-overlay.active {
-        display: block;
-    }
-}
     </style>
     @stack('styles')
 </head>
 <body>
-    <div class="sidebar" onclick="toggleSidebar()"></div>
+    <!-- Overlay (click to close sidebar) -->
+    <div class="mobile-menu-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Hamburger Button -->
     <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰</button>
-    
+
     <div class="admin-wrapper">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <a href="{{ route('admin.dashboard') }}" class="sidebar-logo">Seema's Admin</a>
             </div>
@@ -708,13 +476,12 @@
 
     @stack('scripts')
     <script>
-    function toggleSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        const overlay = document.querySelector('.mobile-menu-overlay');
-        
-        sidebar.classList.toggle('mobile-active');
-        overlay.classList.toggle('active');
-    }
-</script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.querySelector('.mobile-menu-overlay');
+            sidebar.classList.toggle('mobile-active');
+            overlay.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
